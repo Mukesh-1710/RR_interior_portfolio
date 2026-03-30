@@ -1,11 +1,11 @@
 import { Settings, ShieldCheck, Clock, PenTool } from 'lucide-react';
-import Kitchen from '../assets/Kitchen.JPG';
-import TVUnit from '../assets/TV unit.JPG';
-import Furniture from '../assets/Furniture.JPG';
-import Wardrobe from '../assets/Wardrobe.JPG';
-import Tvunit2 from '../assets/TV unit data.png';
-import Kitchen2 from '../assets/ModularKitchen.png';
-import Wardrobe2 from '../assets/Wardrobe data.jpg';
+import Kitchen from '../assets/kitchen.jpg';
+import TVUnit from '../assets/tv-unit.jpg';
+import Furniture from '../assets/furniture.jpg';
+import Wardrobe from '../assets/wardrobe.jpg';
+import Tvunit2 from '../assets/tv-unit-data.png';
+import Kitchen2 from '../assets/modular-kitchen.png';
+import Wardrobe2 from '../assets/wardrobe-data.jpg';
 
 
 

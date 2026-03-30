@@ -1,6 +1,6 @@
 import { Link, useLocation } from 'react-router-dom';
 import { Phone, Mail, MapPin, ArrowRight } from 'lucide-react';
-import logo from '../logo.PNG';
+import logo from '../logo.png';
 
 const InstagramIcon = ({ size = 24, className = '', strokeWidth = 2 }) => (
   <svg
