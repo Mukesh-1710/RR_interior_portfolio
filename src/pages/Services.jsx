@@ -8,9 +8,9 @@ const Services = () => {
     <div className="bg-gray-50 min-h-screen pb-24">
       {/* Header */}
       <div className="pt-32 pb-20 bg-white border-b relative overflow-hidden">
-        <motion.div 
-          variants={fadeUpVariant} 
-          initial="hidden" 
+        <motion.div
+          variants={fadeUpVariant}
+          initial="hidden"
           animate="visible"
           className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center"
         >
@@ -21,7 +21,7 @@ const Services = () => {
 
       {/* Services Grid */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-16">
-        <motion.div 
+        <motion.div
           variants={staggerContainer}
           initial="hidden"
           whileInView="visible"
@@ -30,12 +30,12 @@ const Services = () => {
         >
           {servicesData.map((service) => (
             <motion.div key={service.id} variants={staggerItemFadeUp}>
-              <Card 
+              <Card
                 title={service.title}
                 description={service.description}
                 image={service.image}
                 ctaText="Get Custom Quote"
-                onCtaClick={() => window.location.href='/contact'}
+                onCtaClick={() => window.location.href = '/contact'}
               />
             </motion.div>
           ))}

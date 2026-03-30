@@ -1,8 +1,11 @@
 import { Settings, ShieldCheck, Clock, PenTool } from 'lucide-react';
-import Kitchen from '../assets/Kitchen.PNG';
-import TVUnit from '../assets/TV unit.PNG';
-import Furniture from '../assets/Furniture.PNG';
+import Kitchen from '../assets/Kitchen.JPG';
+import TVUnit from '../assets/TV unit.JPG';
+import Furniture from '../assets/Furniture.JPG';
 import Wardrobe from '../assets/Wardrobe.JPG';
+import Tvunit2 from '../assets/TV unit data.png';
+import Kitchen2 from '../assets/ModularKitchen.png';
+import Wardrobe2 from '../assets/Wardrobe data.jpg';
 
 
 
@@ -66,19 +69,19 @@ export const projectsData = [
     id: 1,
     title: 'Modern Minimalist Kitchen',
     category: 'Kitchen',
-    image: 'https://images.unsplash.com/photo-1556910103-1c02745a872f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80'
+    image: Kitchen2
   },
   {
     id: 2,
     title: 'Contemporary TV Unit',
     category: 'TV Unit',
-    image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80'
+    image: Tvunit2
   },
   {
     id: 3,
     title: 'Luxury Sliding Wardrobe',
     category: 'Wardrobe',
-    image: 'https://images.unsplash.com/photo-1595514535313-0ea1dc4da1a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80'
+    image: Wardrobe2
   },
   {
     id: 4,

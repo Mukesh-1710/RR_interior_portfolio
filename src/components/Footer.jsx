@@ -25,7 +25,7 @@ const Footer = () => {
   const location = useLocation();
 
   return (
-    <footer className="bg-[#18181A] pt-20 pb-10 border-t border-gray-800">
+    <footer className="bg-charcoal pt-24 pb-12 border-t border-black/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 mb-16">
 
@@ -38,18 +38,15 @@ const Footer = () => {
                 className="h-16 md:h-20 w-auto object-contain contrast-125 saturate-110"
                 onError={(e) => { e.target.style.display = 'none'; e.target.nextSibling.style.display = 'block'; }}
               />
-              <h3 className="text-2xl font-serif tracking-widest text-accent uppercase hidden">
-                RR Interiors
-              </h3>
             </Link>
-            <p className="text-gray-400 text-sm leading-relaxed mb-6">
+            <p className="text-surface-beige/70 text-base leading-relaxed mb-6 font-light">
               Premium architecture and design studio creating spaces that inspire and elevate the human experience.
             </p>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h4 className="text-lg font-serif text-white mb-6 tracking-wide">Quick Links</h4>
+            <h4 className="text-lg font-bold text-surface-white mb-6 tracking-wide">Quick Links</h4>
             <ul className="space-y-4">
               {['Home', 'About', 'Services', 'Projects', 'Contact'].map((item) => {
                 const path = item === 'Home' ? '/' : `/${item.toLowerCase()}`;
@@ -58,7 +55,7 @@ const Footer = () => {
                   <li key={item}>
                     <Link
                       to={path}
-                      className={`group text-sm inline-flex items-center transition-all duration-300 ${isActive ? 'text-accent translate-x-1' : 'text-gray-400 hover:text-accent hover:translate-x-1'}`}
+                      className={`group text-base inline-flex items-center transition-all duration-300 ${isActive ? 'text-accent translate-x-1' : 'text-surface-beige/70 hover:text-accent hover:translate-x-1'}`}
                     >
                       {isActive && (
                         <span className="mr-2">&rarr;</span>
@@ -73,25 +70,25 @@ const Footer = () => {
 
           {/* Contact Us */}
           <div>
-            <h4 className="text-lg font-serif text-white mb-6 tracking-wide">Contact Us</h4>
+            <h4 className="text-lg font-bold text-surface-white mb-6 tracking-wide">Contact Us</h4>
             <ul className="space-y-5">
-              <li className="flex items-start text-sm text-gray-400">
-                <MapPin size={18} className="mr-3 text-accent flex-shrink-0 mt-0.5" strokeWidth={1.5} />
-                <span className="leading-relaxed">
+              <li className="flex items-start text-base text-surface-beige/70">
+                <MapPin size={20} className="mr-3 text-accent flex-shrink-0 mt-0.5" strokeWidth={1.5} />
+                <span className="leading-relaxed font-light">
                   ByPass Road<br />
                   Avaniyapuram<br />
                   Madurai - 625012
                 </span>
               </li>
-              <li className="flex items-start text-sm text-gray-400">
-                <Phone size={18} className="mr-3 text-accent flex-shrink-0 mt-0.5" strokeWidth={1.5} />
-                <span className="leading-relaxed">
+              <li className="flex items-start text-base text-surface-beige/70">
+                <Phone size={20} className="mr-3 text-accent flex-shrink-0 mt-0.5" strokeWidth={1.5} />
+                <span className="leading-relaxed font-light">
                   86102 77404<br />
                 </span>
               </li>
-              <li className="flex items-center text-sm text-gray-400">
-                <Mail size={18} className="mr-3 text-accent flex-shrink-0" strokeWidth={1.5} />
-                <a href="mailto:rrinteriorsmdu@gmail.com" className="hover:text-accent transition-colors">
+              <li className="flex items-center text-base text-surface-beige/70">
+                <Mail size={20} className="mr-3 text-accent flex-shrink-0" strokeWidth={1.5} />
+                <a href="mailto:rrinteriorsmdu@gmail.com" className="hover:text-accent transition-colors font-light">
                   rrinteriorsmdu@gmail.com
                 </a>
               </li>
@@ -100,34 +97,34 @@ const Footer = () => {
 
           {/* Follow Us & Newsletter */}
           <div>
-            <h4 className="text-lg font-serif text-white mb-6 tracking-wide">Follow Us</h4>
-            <div className="flex items-center text-sm text-gray-400 mb-10">
-              <InstagramIcon size={18} className="mr-3 text-accent" strokeWidth={1.5} />
-              <a href="https://www.instagram.com/rr.interior.mdu?igsh=MWlsNHc2bHowazZuaw==" className="hover:text-accent transition-colors">@rr.interior.mdu</a>
+            <h4 className="text-lg font-bold text-surface-white mb-6 tracking-wide">Follow Us</h4>
+            <div className="flex items-center text-base text-surface-beige/70 mb-10">
+              <InstagramIcon size={20} className="mr-3 text-accent" strokeWidth={1.5} />
+              <a href="https://www.instagram.com/rr.interior.mdu?igsh=MWlsNHc2bHowazZuaw==" className="hover:text-accent transition-colors font-light">@rr.interior.mdu</a>
             </div>
 
-            <h4 className="text-lg font-serif text-white mb-6 tracking-wide">Newsletter</h4>
-            <div className="flex w-full overflow-hidden rounded-sm">
+            <h4 className="text-lg font-bold text-surface-white mb-6 tracking-wide">Newsletter</h4>
+            <div className="flex w-full overflow-hidden rounded-xl border border-white/10 bg-white/5 focus-within:border-accent transition-colors">
               <input
                 type="email"
                 placeholder="Your email address"
-                className="bg-[#2A2A2A] text-sm text-gray-300 px-4 py-3 outline-none w-full border-none focus:ring-1 focus:ring-accent"
+                className="bg-transparent text-base text-surface-beige px-5 py-3 outline-none w-full placeholder-surface-beige/40"
               />
-              <button className="bg-accent/90 hover:bg-accent px-5 flex items-center justify-center transition-colors">
-                <ArrowRight size={18} className="text-white" strokeWidth={2} />
+              <button className="bg-accent hover:bg-accent-hover px-5 flex items-center justify-center transition-colors">
+                <ArrowRight size={20} className="text-white" strokeWidth={2} />
               </button>
             </div>
           </div>
 
         </div>
 
-        <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-gray-500 font-medium">
+        <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-surface-beige/50 font-light">
           <p className="mb-4 md:mb-0">
             &copy; {new Date().getFullYear()} RR Interiors. All rights reserved.
           </p>
           <div className="flex space-x-6">
-            <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
+            <a href="#" className="hover:text-surface-white transition-colors">Privacy Policy</a>
+            <a href="#" className="hover:text-surface-white transition-colors">Terms of Service</a>
           </div>
         </div>
       </div>

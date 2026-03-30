@@ -14,7 +14,7 @@ const Home = () => {
     offset: ["start start", "end start"]
   });
   // Apple-like parallax effect for hero background
-  const yBg = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]); 
+  const yBg = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -30,7 +30,7 @@ const Home = () => {
         </motion.div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pt-24 md:pt-32">
-          <motion.div 
+          <motion.div
             variants={fadeUpVariant}
             initial="hidden"
             animate="visible"
@@ -54,7 +54,7 @@ const Home = () => {
       {/* Services Preview */}
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div 
+          <motion.div
             variants={fadeUpVariant}
             initial="hidden"
             whileInView="visible"
@@ -65,7 +65,7 @@ const Home = () => {
             <p className="text-gray-600 text-lg">We provide end-to-end interior solutions tailored to your specific needs and lifestyle.</p>
           </motion.div>
 
-          <motion.div 
+          <motion.div
             variants={staggerContainer}
             initial="hidden"
             whileInView="visible"
@@ -83,7 +83,7 @@ const Home = () => {
             ))}
           </motion.div>
 
-          <motion.div 
+          <motion.div
             variants={fadeUpVariant}
             initial="hidden"
             whileInView="visible"
@@ -100,7 +100,7 @@ const Home = () => {
       {/* Why Choose Us */}
       <section className="py-24 bg-gray-50 border-y border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div 
+          <motion.div
             variants={fadeUpVariant}
             initial="hidden"
             whileInView="visible"
@@ -111,7 +111,7 @@ const Home = () => {
             <p className="text-gray-600 text-lg">Experience the RR Interiors difference with our commitment to quality and transparency.</p>
           </motion.div>
 
-          <motion.div 
+          <motion.div
             variants={staggerContainer}
             initial="hidden"
             whileInView="visible"
@@ -119,8 +119,8 @@ const Home = () => {
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
           >
             {featuresData.map((feature) => (
-              <motion.div 
-                key={feature.id} 
+              <motion.div
+                key={feature.id}
                 variants={staggerItemFadeUp}
                 className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 text-center hover:shadow-xl transition-all duration-500 hover:-translate-y-2 group"
               >
@@ -139,7 +139,7 @@ const Home = () => {
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-end mb-16">
-            <motion.div 
+            <motion.div
               variants={fadeUpVariant}
               initial="hidden"
               whileInView="visible"
@@ -163,8 +163,8 @@ const Home = () => {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {projectsData.slice(0, 3).map((project, index) => (
-              <motion.div 
-                key={project.id} 
+              <motion.div
+                key={project.id}
                 variants={zoomFadeVariant}
                 initial="hidden"
                 whileInView="visible"
@@ -195,15 +195,15 @@ const Home = () => {
 
       {/* Final CTA */}
       <section className="py-24 bg-accent text-white relative overflow-hidden">
-        <motion.div 
+        <motion.div
           initial={{ scale: 1.1 }}
           whileInView={{ scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 1.5, ease: "easeOut" }}
           className="absolute inset-0 opacity-10 bg-[url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80')] bg-cover bg-center"
         ></motion.div>
-        
-        <motion.div 
+
+        <motion.div
           variants={fadeUpVariant}
           initial="hidden"
           whileInView="visible"

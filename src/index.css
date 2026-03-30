@@ -3,12 +3,12 @@
 @import "tailwindcss";
 
 @theme {
-  --color-accent: #D4AF37;
-  /* Premium Gold */
-  --color-accent-light: #F3E5AB;
-  /* Light Gold/Vanilla */
-  --color-secondary: #3E2723;
-  /* Dark Brown */
+  --color-surface-beige: #FDFBF7;
+  --color-surface-white: #FFFFFF;
+  --color-charcoal: #1C1C1E;
+  --color-charcoal-light: #4A4A4D;
+  --color-accent: #C8A96A;
+  --color-accent-hover: #B4965A;
 }
 
 @layer base {
@@ -23,6 +23,14 @@
   }
 
   body {
-    @apply text-gray-800 antialiased bg-white;
+    @apply bg-surface-beige text-charcoal antialiased transition-colors duration-500;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply text-charcoal tracking-tight font-bold;
+  }
+
+  p {
+    @apply text-charcoal-light leading-relaxed;
   }
 }

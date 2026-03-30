@@ -10,16 +10,16 @@ const Projects = () => {
 
   const categories = ['All', 'Wardrobe', 'Kitchen', 'TV Unit'];
 
-  const filteredProjects = filter === 'All' 
-    ? projectsData 
+  const filteredProjects = filter === 'All'
+    ? projectsData
     : projectsData.filter(project => project.category === filter);
 
   return (
     <div className="bg-white min-h-screen pb-24">
-      
+
       {/* Header */}
       <div className="pt-32 pb-20 bg-gray-50 border-b overflow-hidden">
-        <motion.div 
+        <motion.div
           variants={fadeUpVariant}
           initial="hidden"
           animate="visible"
@@ -32,7 +32,7 @@ const Projects = () => {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 text-center">
         {/* Filter Buttons */}
-        <motion.div 
+        <motion.div
           variants={fadeUpVariant}
           initial="hidden"
           animate="visible"
@@ -42,11 +42,10 @@ const Projects = () => {
             <button
               key={cat}
               onClick={() => setFilter(cat)}
-              className={`px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-300 ${
-                filter === cat 
-                  ? 'bg-accent text-white shadow-md scale-105' 
-                  : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
-              }`}
+              className={`px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-300 ${filter === cat
+                ? 'bg-accent text-white shadow-md scale-105'
+                : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                }`}
             >
               {cat}
             </button>
@@ -57,19 +56,19 @@ const Projects = () => {
         <motion.div layout className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           <AnimatePresence mode="popLayout">
             {filteredProjects.map((project) => (
-              <motion.div 
+              <motion.div
                 layout
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.8 }}
                 transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
-                key={project.id} 
+                key={project.id}
                 className="group relative rounded-xl overflow-hidden aspect-[9/16] shadow-sm hover:shadow-2xl transition-shadow duration-500 cursor-pointer"
                 onClick={() => setSelectedImage(project)}
               >
-                <img 
-                  src={project.image} 
-                  alt={project.title} 
+                <img
+                  src={project.image}
+                  alt={project.title}
                   className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700 ease-[cubic-bezier(0.25,0.1,0.25,1)]"
                   loading="lazy"
                 />
@@ -92,20 +91,20 @@ const Projects = () => {
       {/* Lightbox Modal */}
       <AnimatePresence>
         {selectedImage && (
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             className="fixed inset-0 z-[100] bg-black/90 flex items-center justify-center p-4 backdrop-blur-sm"
           >
-            <button 
+            <button
               onClick={() => setSelectedImage(null)}
               className="absolute top-6 right-6 text-white hover:text-accent-light transition-colors focus:outline-none z-[101]"
             >
               <X size={36} />
             </button>
-            
-            <motion.div 
+
+            <motion.div
               initial={{ scale: 0.95, opacity: 0, y: 30 }}
               animate={{ scale: 1, opacity: 1, y: 0 }}
               exit={{ scale: 0.95, opacity: 0, y: 30 }}
@@ -113,11 +112,11 @@ const Projects = () => {
               className="max-w-5xl w-full flex flex-col md:flex-row bg-white rounded-2xl overflow-hidden shadow-2xl relative z-[101]"
             >
               <div className="w-full md:w-2/3 md:h-[85vh] h-[60vh] relative overflow-hidden">
-                <motion.img 
+                <motion.img
                   initial={{ scale: 1.1 }}
                   animate={{ scale: 1 }}
                   transition={{ duration: 0.8, ease: "easeOut" }}
-                  src={selectedImage.image} 
+                  src={selectedImage.image}
                   alt={selectedImage.title}
                   className="w-full h-full object-cover"
                 />
@@ -128,8 +127,8 @@ const Projects = () => {
                 <p className="text-gray-600 mb-8 leading-relaxed">
                   This {selectedImage.category.toLowerCase()} project features premium finishes and smart spatial planning to maximize both aesthetics and utility.
                 </p>
-                
-                <a 
+
+                <a
                   href={`https://wa.me/918610277404?text=Hi, I want a design similar to the ${selectedImage.title} project`}
                   target="_blank"
                   rel="noreferrer"

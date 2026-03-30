@@ -1,26 +1,27 @@
 import { Link } from 'react-router-dom';
 
-const Button = ({ children, to, variant = 'primary', className = '', ...props }) => {
-  const baseStyles = "inline-flex items-center justify-center px-6 py-3 border font-medium rounded-full transition-all duration-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2";
-  
-  const variants = {
-    primary: "border-transparent text-white bg-accent hover:bg-accent/90 hover:shadow-md focus:ring-accent transform hover:-translate-y-0.5",
-    secondary: "border-accent text-accent bg-transparent hover:bg-accent hover:text-white focus:ring-accent",
-    outline: "border-gray-300 text-gray-700 bg-white hover:bg-gray-50 focus:ring-gray-500",
-  };
-
-  const combinedStyles = `${baseStyles} ${variants[variant]} ${className}`;
+const Button = ({ children, to, type = "button", onClick, className = "" }) => {
+  const baseClasses = `
+    inline-flex items-center justify-center 
+    px-8 py-3
+    rounded-full 
+    bg-accent text-white font-semibold 
+    shadow-[0_4px_20px_rgba(0,0,0,0.08)] 
+    transition-all duration-300
+    hover:bg-accent-hover hover:-translate-y-0.5
+    focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2
+  `;
 
   if (to) {
     return (
-      <Link to={to} className={combinedStyles} {...props}>
+      <Link to={to} className={`${baseClasses} ${className}`}>
         {children}
       </Link>
     );
   }
 
   return (
-    <button className={combinedStyles} {...props}>
+    <button type={type} onClick={onClick} className={`${baseClasses} ${className}`}>
       {children}
     </button>
   );
