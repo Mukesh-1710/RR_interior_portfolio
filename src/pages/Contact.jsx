@@ -2,13 +2,48 @@ import { MapPin, Phone, Mail } from 'lucide-react';
 import { motion } from 'framer-motion';
 import Button from '../components/Button';
 import { fadeUpVariant, slideInLeftVariant, slideInRightVariant, staggerContainer, staggerItemFadeUp } from '../utils/motion';
+import { useState } from 'react';
 
 const Contact = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    phone: "",
+    service: "Full Home Interior",
+    message: ""
+  });
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    if (!formData.name || !formData.phone) {
+      alert("Please fill all required fields");
+      return;
+    }
+
+    const text = `Hello, I have an enquiry:
+
+Name: ${formData.name}
+Phone: ${formData.phone}
+Service: ${formData.service}
+Message: ${formData.message}`;
+
+    const whatsappURL = `https://wa.me/918610277404?text=${encodeURIComponent(text)}`;
+
+    window.open(whatsappURL, "_blank");
+  };
+
   return (
     <div className="bg-surface-beige min-h-screen pb-24 overflow-hidden">
       {/* Header */}
       <div className="pt-32 pb-24 bg-charcoal relative">
-        <motion.div 
+        <motion.div
           variants={fadeUpVariant}
           initial="hidden"
           animate="visible"
@@ -25,7 +60,7 @@ const Contact = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-start">
 
           {/* Contact Details */}
-          <motion.div 
+          <motion.div
             variants={slideInLeftVariant}
             initial="hidden"
             whileInView="visible"
@@ -37,7 +72,7 @@ const Contact = () => {
               We'd love to hear from you. Whether you have a question about our interior design services, want to discuss a potential project, or just want to say hello, our team is ready to answer all your questions.
             </p>
 
-            <motion.ul 
+            <motion.ul
               variants={staggerContainer}
               initial="hidden"
               whileInView="visible"
@@ -45,9 +80,9 @@ const Contact = () => {
               className="space-y-10"
             >
               {[
-                { icon: MapPin, title: "Our Studio", desc: "123 Design Street, Anna Nagar,\nMadurai, Tamil Nadu 625020", link: null },
+                { icon: MapPin, title: "Our Studio", desc: "By Pass Road, Avaniyapuram,\nMadurai, Tamil Nadu 625012", link: null },
                 { icon: Phone, title: "Phone Number", desc: "+91 86102 77404", link: "tel:+918610277404" },
-                { icon: Mail, title: "Email Address", desc: "hello@rrinterior.com", link: "mailto:hello@rrinterior.com" }
+                { icon: Mail, title: "Email Address", desc: "rrinteriorsmdu@gmail.com", link: "mailto:rrinteriorsmdu@gmail.com" }
               ].map((item, index) => (
                 <motion.li key={index} variants={staggerItemFadeUp} className="flex items-start group">
                   <div className="w-14 h-14 bg-white shadow-[0_10px_40px_rgba(0,0,0,0.05)] border border-black/5 rounded-2xl flex items-center justify-center text-accent mr-6 flex-shrink-0 group-hover:bg-accent group-hover:text-white transition-all duration-300">
@@ -67,7 +102,7 @@ const Contact = () => {
           </motion.div>
 
           {/* Contact Form */}
-          <motion.div 
+          <motion.div
             variants={slideInRightVariant}
             initial="hidden"
             whileInView="visible"
@@ -79,20 +114,20 @@ const Contact = () => {
 
             <div className="relative">
               <h3 className="text-3xl font-bold text-charcoal mb-8">Send Us a Message</h3>
-              <form className="space-y-6" onSubmit={e => e.preventDefault()}>
+              <form className="space-y-6" onSubmit={handleSubmit}>
                 <div>
                   <label className="block text-sm font-semibold text-charcoal mb-2">Full Name</label>
-                  <input type="text" className="w-full px-5 py-3 rounded-xl bg-white border border-black/10 outline-none focus:border-accent transition-colors text-charcoal" placeholder="John Doe" />
+                  <input type="text" name="name" onChange={handleChange} className="w-full px-5 py-3 rounded-xl bg-white border border-black/10 outline-none focus:border-accent transition-colors text-charcoal" placeholder="John Doe" />
                 </div>
 
                 <div>
                   <label className="block text-sm font-semibold text-charcoal mb-2">Phone Number</label>
-                  <input type="tel" className="w-full px-5 py-3 rounded-xl bg-white border border-black/10 outline-none focus:border-accent transition-colors text-charcoal" placeholder="+91 XXXXX XXXXX" />
+                  <input type="tel" name="phone" onChange={handleChange} className="w-full px-5 py-3 rounded-xl bg-white border border-black/10 outline-none focus:border-accent transition-colors text-charcoal" placeholder="+91 XXXXX XXXXX" />
                 </div>
 
                 <div>
                   <label className="block text-sm font-semibold text-charcoal mb-2">Service Required</label>
-                  <select className="w-full px-5 py-3 rounded-xl bg-white border border-black/10 outline-none focus:border-accent transition-colors text-charcoal appearance-none cursor-pointer">
+                  <select name="service" onChange={handleChange} className="w-full px-5 py-3 rounded-xl bg-white border border-black/10 outline-none focus:border-accent transition-colors text-charcoal appearance-none cursor-pointer">
                     <option>Full Home Interior</option>
                     <option>Modular Kitchen</option>
                     <option>Wardrobe Design</option>
@@ -103,7 +138,7 @@ const Contact = () => {
 
                 <div>
                   <label className="block text-sm font-semibold text-charcoal mb-2">Message</label>
-                  <textarea rows={4} className="w-full px-5 py-3 rounded-xl bg-white border border-black/10 outline-none focus:border-accent transition-colors resize-none text-charcoal" placeholder="Briefly describe your requirements..."></textarea>
+                  <textarea rows={4} name="message" onChange={handleChange} className="w-full px-5 py-3 rounded-xl bg-white border border-black/10 outline-none focus:border-accent transition-colors resize-none text-charcoal" placeholder="Briefly describe your requirements..."></textarea>
                 </div>
 
                 <div className="pt-2 flex">

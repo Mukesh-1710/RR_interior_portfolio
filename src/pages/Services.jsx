@@ -2,8 +2,10 @@ import { motion } from 'framer-motion';
 import Card from '../components/Card';
 import { servicesData } from '../data/mockData';
 import { fadeUpVariant, staggerContainer, staggerItemFadeUp } from '../utils/motion';
+import { useNavigate } from "react-router-dom";
 
 const Services = () => {
+  const navigate = useNavigate();
   return (
     <div className="bg-gray-50 min-h-screen pb-24">
       {/* Header */}
@@ -35,7 +37,7 @@ const Services = () => {
                 description={service.description}
                 image={service.image}
                 ctaText="Get Custom Quote"
-                onCtaClick={() => window.location.href = '/contact'}
+                onCtaClick={() => navigate("/Contact")}
               />
             </motion.div>
           ))}

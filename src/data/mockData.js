@@ -6,6 +6,9 @@ import Wardrobe from '../assets/wardrobe.jpg';
 import Tvunit2 from '../assets/tv-unit-data.png';
 import Kitchen2 from '../assets/modular-kitchen.png';
 import Wardrobe2 from '../assets/wardrobe-data.jpg';
+import TVUnit3 from '../assets/tv-unit2.jpg';
+import Wardrobe3 from '../assets/wardrobe2.jpg';
+import Sofa from '../assets/sofa.png';
 
 
 
@@ -85,20 +88,20 @@ export const projectsData = [
   },
   {
     id: 4,
-    title: 'L-Shaped Modular Kitchen',
-    category: 'Kitchen',
-    image: 'https://images.unsplash.com/photo-1600489000022-c2086d79f9d4?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80'
+    title: 'L-Shaped Sofa',
+    category: 'Furniture',
+    image: Sofa
   },
   {
     id: 5,
     title: 'Floating TV Console',
     category: 'TV Unit',
-    image: 'https://images.unsplash.com/photo-1600607688069-b5ef870425a1?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80'
+    image: TVUnit3
   },
   {
     id: 6,
     title: 'Walk-in Wardrobe Space',
     category: 'Wardrobe',
-    image: 'https://images.unsplash.com/photo-1616486029423-aaa4789e8c9a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80'
+    image: Wardrobe3
   }
 ];
