@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
+import { motion } from 'framer-motion';
 import Button from './Button';
 import logo from '../logo.png';
 
@@ -24,58 +25,54 @@ const Navbar = () => {
     { name: 'About', path: '/about' },
   ];
 
-  // We enforce the unified Navbar look globally, except the exact very top of Home hero where it can be transparent
-  const isDarkOverlay = location.pathname === '/' && !isScrolled && !isOpen;
-  
-  // Enforced Step 8 requirements: translucent beige, backdrop blur, charcoal text, reduced padding.
   const navBackground = isOpen
-    ? 'bg-surface-beige py-2'
-    : (isScrolled || location.pathname !== '/' ? 'bg-surface-beige/80 backdrop-blur-md shadow-sm border-b border-black/5 py-2' : 'bg-transparent py-3');
+    ? 'bg-bg-main shadow-lg'
+    : (isScrolled ? 'bg-bg-main/80 backdrop-blur-md shadow-luxury' : 'bg-bg-main/50 backdrop-blur-sm');
 
   return (
-    <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${navBackground}`}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${navBackground} ${isScrolled ? 'py-3' : 'py-5'}`}>
+      <div className="max-w-7xl mx-auto px-6 lg:px-12">
         <div className="flex justify-between items-center">
-          <Link to="/" className="flex items-center">
+          <Link to="/" className="flex items-center group">
             <img 
               src={logo} 
               alt="RR Interiors" 
-              className={`w-auto object-contain mix-blend-multiply contrast-125 saturate-110 transition-all duration-300 ${isScrolled ? 'h-10 md:h-12' : 'h-14 md:h-16'}`} 
-              onError={(e) => { e.target.style.display = 'none'; e.target.nextSibling.style.display = 'block'; }} 
+              className={`w-auto object-contain transition-all duration-500 group-hover:scale-105 ${isScrolled ? 'h-10' : 'h-12'}`} 
             />
-            <span className="text-2xl font-bold text-accent hidden">RR Interiors</span>
           </Link>
 
           {/* Desktop Menu */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-10">
             {navLinks.map((link) => {
               const isActive = location.pathname === link.path;
-              // Active link: text-accent border-b border-accent
-              // Inactive link: text-charcoal
-              const textColorClass = isActive 
-                ? 'text-accent border-b border-accent pb-0.5' 
-                : (isDarkOverlay ? 'text-white hover:text-accent' : 'text-charcoal hover:text-accent');
-
               return (
                 <Link
                   key={link.path}
                   to={link.path}
-                  className={`text-sm font-medium transition-colors ${textColorClass}`}
+                  className={`relative text-sm uppercase tracking-widest font-medium transition-colors hover:text-accent ${isActive ? 'text-accent' : 'text-text-primary'}`}
                 >
                   {link.name}
+                  {isActive && (
+                    <motion.div
+                      layoutId="nav-underline"
+                      className="absolute -bottom-1 left-0 right-0 h-0.5 bg-accent"
+                      initial={false}
+                      transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                    />
+                  )}
                 </Link>
               );
             })}
             
-            <Button to="/contact" className="ml-4 py-2 px-6 text-sm"> {/* Adjusting internal button size for compact premium navbar */}
-              Contact Us
+            <Button to="/contact" variant="secondary" className="px-6 py-2 text-xs uppercase tracking-widest">
+              Contact
             </Button>
           </div>
 
           {/* Mobile Menu Button */}
           <div className="md:hidden flex items-center">
-            <button onClick={() => setIsOpen(!isOpen)} className={`focus:outline-none transition-colors ${isDarkOverlay ? 'text-white' : 'text-charcoal'}`}>
-              {isOpen ? <X size={28} /> : <Menu size={28} />}
+            <button onClick={() => setIsOpen(!isOpen)} className="text-text-primary focus:outline-none">
+              {isOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
           </div>
         </div>
@@ -83,27 +80,32 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="md:hidden absolute top-[100%] left-0 w-full bg-surface-beige shadow-lg border-b border-black/5 pb-4">
-          <div className="px-4 py-3 space-y-1 sm:px-3 flex flex-col">
+        <motion.div 
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="md:hidden absolute top-full left-0 w-full bg-bg-main shadow-2xl border-t border-black/5"
+        >
+          <div className="px-6 py-8 space-y-4 flex flex-col items-center">
             {navLinks.map((link) => (
               <Link
                 key={link.path}
                 to={link.path}
-                className={`block px-4 py-3 rounded-lg text-base font-medium transition-colors ${location.pathname === link.path ? 'text-accent bg-accent/10' : 'text-charcoal hover:text-accent hover:bg-white/50'}`}
+                className={`text-lg uppercase tracking-widest font-medium transition-colors ${location.pathname === link.path ? 'text-accent' : 'text-text-primary'}`}
               >
                 {link.name}
               </Link>
             ))}
-            <div className="px-3 pt-3">
-              <Button to="/contact" className="w-full">
+            <div className="pt-4 w-full max-w-xs">
+              <Button to="/contact" className="w-full text-center">
                 Contact Us
               </Button>
             </div>
           </div>
-        </div>
+        </motion.div>
       )}
     </nav>
   );
 };
 
 export default Navbar;
+

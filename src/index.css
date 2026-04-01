@@ -1,14 +1,32 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
 
 @import "tailwindcss";
 
 @theme {
-  --color-surface-beige: #FDFBF7;
-  --color-surface-white: #FFFFFF;
-  --color-charcoal: #1C1C1E;
-  --color-charcoal-light: #4A4A4D;
+  --color-bg-main: #E8EDDF;
+  --color-bg-secondary: #F5F3EE;
+  --color-surface: #FFFFFF;
+  --color-text-primary: #1C1C1E;
+  --color-text-secondary: #5A5A5A;
   --color-accent: #C8A96A;
   --color-accent-hover: #B4965A;
+
+  --font-serif: "Playfair Display", serif;
+  --font-sans: "Inter", sans-serif;
+
+  .shadow-luxury {
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+  }
+
+  .shadow-luxury-glow {
+    box-shadow: 0 10px 30px rgba(212, 175, 55, 0.2);
+  }
+
+  .luxury-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-[#D4AF37] to-[#F5E6C8];
+    filter: drop-shadow(0 0 8px rgba(212, 175, 55, 0.2));
+    display: inline-block;
+  }
 }
 
 @layer base {
@@ -18,19 +36,19 @@
   }
 
   html {
-    font-family: 'Inter', sans-serif;
+    font-family: var(--font-sans);
     scroll-behavior: smooth;
   }
 
   body {
-    @apply bg-surface-beige text-charcoal antialiased transition-colors duration-500;
+    @apply bg-bg-main text-text-primary antialiased transition-all duration-500;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply text-charcoal tracking-tight font-bold;
+    @apply font-serif text-text-primary tracking-tight font-light;
   }
 
   p {
-    @apply text-charcoal-light leading-relaxed;
+    @apply text-text-secondary leading-loose;
   }
-}
+}

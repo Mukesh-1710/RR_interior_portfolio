@@ -4,6 +4,8 @@ import Button from '../components/Button';
 import { fadeUpVariant, slideInLeftVariant, slideInRightVariant, staggerContainer, staggerItemFadeUp } from '../utils/motion';
 import { useState } from 'react';
 
+import LocationSection from '../components/LocationSection';
+
 const Contact = () => {
   const [formData, setFormData] = useState({
     name: "",
@@ -40,23 +42,24 @@ Message: ${formData.message}`;
   };
 
   return (
-    <div className="bg-surface-beige min-h-screen pb-24 overflow-hidden">
+    <div className="bg-bg-main min-h-screen pb-24 overflow-hidden">
       {/* Header */}
-      <div className="pt-32 pb-24 bg-charcoal relative">
+      <div className="pt-40 pb-24 bg-bg-secondary relative">
         <motion.div
           variants={fadeUpVariant}
           initial="hidden"
           animate="visible"
-          className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center"
+          className="max-w-7xl mx-auto px-6 lg:px-12 text-center"
         >
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-surface-white mb-6">Contact Us</h1>
-          <p className="text-lg md:text-xl text-surface-beige max-w-2xl mx-auto font-light">
-            Let's discuss your dream home. Get in touch for customized designs and quotes.
+          <motion.span variants={fadeUpVariant} className="text-accent text-xs uppercase tracking-[0.3em] font-medium mb-6 block">Get in Touch</motion.span>
+          <h1 className="text-5xl md:text-7xl mb-8 leading-tight">Studio <span className="italic font-normal">Inquiry</span></h1>
+          <p className="text-xl text-text-secondary max-w-2xl mx-auto font-light leading-relaxed">
+            Let's discuss the architectural narrative of your future home.
           </p>
         </motion.div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-24">
+      <div className="max-w-7xl mx-auto px-6 lg:px-12 mt-24">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-start">
 
           {/* Contact Details */}
@@ -67,38 +70,38 @@ Message: ${formData.message}`;
             viewport={{ once: true, amount: 0.2 }}
             className="flex flex-col h-full"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-charcoal mb-6">Get In Touch</h2>
-            <p className="text-charcoal-light text-lg mb-12 max-w-lg">
-              We'd love to hear from you. Whether you have a question about our interior design services, want to discuss a potential project, or just want to say hello, our team is ready to answer all your questions.
+            <h2 className="text-4xl md:text-5xl mb-10 leading-tight">Connect with <span className="italic font-normal">Us</span></h2>
+            <p className="text-text-secondary text-lg mb-12 max-w-lg leading-loose font-light">
+              We welcome dialogues about bespoke design and premium carpentry. Our studio is dedicated to translating your vision into a silent luxury statement.
             </p>
 
-            <motion.ul
+            <motion.div
               variants={staggerContainer}
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
-              className="space-y-10"
+              className="space-y-8"
             >
               {[
-                { icon: MapPin, title: "Our Studio", desc: "By Pass Road, Avaniyapuram,\nMadurai, Tamil Nadu 625012", link: null },
-                { icon: Phone, title: "Phone Number", desc: "+91 86102 77404", link: "tel:+918610277404" },
-                { icon: Mail, title: "Email Address", desc: "rrinteriorsmdu@gmail.com", link: "mailto:rrinteriorsmdu@gmail.com" }
+                { icon: MapPin, title: "The Studio", desc: "By Pass Road, Avaniyapuram,\nMadurai, Tamil Nadu 625012", link: null },
+                { icon: Phone, title: "Secure Line", desc: "+91 86102 77404", link: "tel:+918610277404" },
+                { icon: Mail, title: "Studio Correspondence", desc: "rrinteriorsmdu@gmail.com", link: "mailto:rrinteriorsmdu@gmail.com" }
               ].map((item, index) => (
-                <motion.li key={index} variants={staggerItemFadeUp} className="flex items-start group">
-                  <div className="w-14 h-14 bg-white shadow-[0_10px_40px_rgba(0,0,0,0.05)] border border-black/5 rounded-2xl flex items-center justify-center text-accent mr-6 flex-shrink-0 group-hover:bg-accent group-hover:text-white transition-all duration-300">
+                <motion.div key={index} variants={staggerItemFadeUp} className="flex items-start group gap-6">
+                  <div className="w-14 h-14 bg-surface shadow-luxury rounded-full flex items-center justify-center text-accent flex-shrink-0 group-hover:bg-accent group-hover:text-white transition-all duration-500">
                     <item.icon size={26} strokeWidth={1.5} />
                   </div>
-                  <div className="pt-1">
-                    <strong className="block text-charcoal text-xl font-bold mb-2">{item.title}</strong>
+                  <div>
+                    <h4 className="text-xl font-serif mb-2">{item.title}</h4>
                     {item.link ? (
-                      <a href={item.link} className="text-charcoal-light hover:text-accent transition-colors text-lg inline-block whitespace-pre-line">{item.desc}</a>
+                      <a href={item.link} className="text-text-secondary hover:text-accent transition-colors text-lg inline-block whitespace-pre-line font-light">{item.desc}</a>
                     ) : (
-                      <span className="text-charcoal-light text-lg whitespace-pre-line">{item.desc}</span>
+                      <span className="text-text-secondary text-lg whitespace-pre-line font-light">{item.desc}</span>
                     )}
                   </div>
-                </motion.li>
+                </motion.div>
               ))}
-            </motion.ul>
+            </motion.div>
           </motion.div>
 
           {/* Contact Form */}
@@ -107,43 +110,42 @@ Message: ${formData.message}`;
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.2 }}
-            className="bg-white p-8 md:p-12 rounded-2xl shadow-[0_10px_40px_rgba(0,0,0,0.05)] border border-black/5 relative overflow-hidden"
+            className="bg-surface p-10 lg:p-16 rounded-[3rem] shadow-luxury relative overflow-hidden"
           >
-            {/* Decorative background element */}
-            <div className="absolute top-0 right-0 -mt-10 -mr-10 w-40 h-40 bg-accent/5 rounded-full blur-3xl"></div>
-
             <div className="relative">
-              <h3 className="text-3xl font-bold text-charcoal mb-8">Send Us a Message</h3>
-              <form className="space-y-6" onSubmit={handleSubmit}>
-                <div>
-                  <label className="block text-sm font-semibold text-charcoal mb-2">Full Name</label>
-                  <input type="text" name="name" onChange={handleChange} className="w-full px-5 py-3 rounded-xl bg-white border border-black/10 outline-none focus:border-accent transition-colors text-charcoal" placeholder="John Doe" />
+              <h3 className="text-3xl mb-12 leading-tight">Send a Message</h3>
+              <form className="space-y-8" onSubmit={handleSubmit}>
+                <div className="space-y-4">
+                  <div className="space-y-2">
+                    <label className="text-xs uppercase tracking-widest text-text-secondary font-medium">Full Identity</label>
+                    <input type="text" name="name" onChange={handleChange} className="w-full bg-bg-main/50 px-6 py-4 rounded-2xl outline-none focus:bg-white focus:ring-1 focus:ring-accent transition-all text-text-primary placeholder:text-text-secondary/50" placeholder="Your Name" />
+                  </div>
+
+                  <div className="space-y-2">
+                    <label className="text-xs uppercase tracking-widest text-text-secondary font-medium">Secure Phone</label>
+                    <input type="tel" name="phone" onChange={handleChange} className="w-full bg-bg-main/50 px-6 py-4 rounded-2xl outline-none focus:bg-white focus:ring-1 focus:ring-accent transition-all text-text-primary placeholder:text-text-secondary/50" placeholder="+91 XXXXX XXXXX" />
+                  </div>
+
+                  <div className="space-y-2">
+                    <label className="text-xs uppercase tracking-widest text-text-secondary font-medium">Inquiry Scope</label>
+                    <select name="service" onChange={handleChange} className="w-full bg-bg-main/50 px-6 py-4 rounded-2xl outline-none focus:bg-white focus:ring-1 focus:ring-accent transition-all text-text-primary appearance-none cursor-pointer">
+                      <option>Full Home Interior</option>
+                      <option>Modular Kitchen</option>
+                      <option>Wardrobe Design</option>
+                      <option>TV Unit / False Ceiling</option>
+                      <option>Other / Consultation</option>
+                    </select>
+                  </div>
+
+                  <div className="space-y-2">
+                    <label className="text-xs uppercase tracking-widest text-text-secondary font-medium">Narrative Message</label>
+                    <textarea rows={4} name="message" onChange={handleChange} className="w-full bg-bg-main/50 px-6 py-4 rounded-2xl outline-none focus:bg-white focus:ring-1 focus:ring-accent transition-all text-text-primary resize-none placeholder:text-text-secondary/50" placeholder="Tell us about your project..."></textarea>
+                  </div>
                 </div>
 
-                <div>
-                  <label className="block text-sm font-semibold text-charcoal mb-2">Phone Number</label>
-                  <input type="tel" name="phone" onChange={handleChange} className="w-full px-5 py-3 rounded-xl bg-white border border-black/10 outline-none focus:border-accent transition-colors text-charcoal" placeholder="+91 XXXXX XXXXX" />
-                </div>
-
-                <div>
-                  <label className="block text-sm font-semibold text-charcoal mb-2">Service Required</label>
-                  <select name="service" onChange={handleChange} className="w-full px-5 py-3 rounded-xl bg-white border border-black/10 outline-none focus:border-accent transition-colors text-charcoal appearance-none cursor-pointer">
-                    <option>Full Home Interior</option>
-                    <option>Modular Kitchen</option>
-                    <option>Wardrobe Design</option>
-                    <option>TV Unit / False Ceiling</option>
-                    <option>Other / Consultation</option>
-                  </select>
-                </div>
-
-                <div>
-                  <label className="block text-sm font-semibold text-charcoal mb-2">Message</label>
-                  <textarea rows={4} name="message" onChange={handleChange} className="w-full px-5 py-3 rounded-xl bg-white border border-black/10 outline-none focus:border-accent transition-colors resize-none text-charcoal" placeholder="Briefly describe your requirements..."></textarea>
-                </div>
-
-                <div className="pt-2 flex">
+                <div className="pt-4 flex">
                   <Button type="submit" className="w-full">
-                    Submit Request
+                    Consult Studio
                   </Button>
                 </div>
               </form>
@@ -152,8 +154,11 @@ Message: ${formData.message}`;
 
         </div>
       </div>
+
+      <LocationSection />
     </div>
   );
 };
 
 export default Contact;
+

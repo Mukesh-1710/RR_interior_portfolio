@@ -7,6 +7,9 @@ import About from './pages/About';
 import Services from './pages/Services';
 import Projects from './pages/Projects';
 import Contact from './pages/Contact';
+import InteriorDesignMadurai from './pages/InteriorDesignMadurai';
+import ModularKitchenMadurai from './pages/ModularKitchenMadurai';
+import HomeInteriorsMadurai from './pages/HomeInteriorsMadurai';
 import ScrollToTop from './components/ScrollToTop';
 import { motion, useScroll, useSpring } from 'framer-motion';
 
@@ -32,6 +35,9 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/services" element={<Services />} />
+            <Route path="/services/interior-designers-madurai" element={<InteriorDesignMadurai />} />
+            <Route path="/services/modular-kitchen-madurai" element={<ModularKitchenMadurai />} />
+            <Route path="/services/home-interiors-madurai" element={<HomeInteriorsMadurai />} />
             <Route path="/projects" element={<Projects />} />
             <Route path="/contact" element={<Contact />} />
           </Routes>

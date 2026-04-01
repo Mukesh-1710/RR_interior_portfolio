@@ -1,4 +1,4 @@
-import { Settings, ShieldCheck, Clock, PenTool } from 'lucide-react';
+import { Gem, ShieldCheck, Clock, PenTool } from 'lucide-react';
 import Kitchen from '../assets/kitchen.jpg';
 import TVUnit from '../assets/tv-unit.jpg';
 import Furniture from '../assets/furniture.jpg';
@@ -18,25 +18,29 @@ export const servicesData = [
     id: 1,
     title: 'Wardrobe',
     description: 'Custom, space-saving wardrobes with premium finishes to match your room style.',
-    image: Wardrobe
+    image: Wardrobe,
+    path: '/services/home-interiors-madurai'
   },
   {
     id: 2,
     title: 'Modular Kitchen',
     description: 'Modern, highly functional kitchens built with durable, water-resistant materials.',
-    image: Kitchen
+    image: Kitchen,
+    path: '/services/modular-kitchen-madurai'
   },
   {
     id: 3,
     title: 'TV Unit',
     description: 'Sleek and elegant TV units that serve as the focal point of your living room.',
-    image: TVUnit
+    image: TVUnit,
+    path: '/services/home-interiors-madurai'
   },
   {
     id: 4,
     title: 'Custom Furniture',
     description: 'Bespoke carpentry and handmade custom furniture for a unique living space.',
-    image: Furniture
+    image: Furniture,
+    path: '/services/interior-designers-madurai'
   }
 ];
 
@@ -45,7 +49,7 @@ export const featuresData = [
     id: 1,
     title: 'Affordable Pricing',
     description: 'We believe luxury should be accessible. Get premium designs within your budget.',
-    icon: Settings // Using Settings for now, since it's a dummy
+    icon: Gem // Updated to Gem for luxury feel
   },
   {
     id: 2,
