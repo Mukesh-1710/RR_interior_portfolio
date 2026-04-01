@@ -13,7 +13,9 @@
 
   --font-serif: "Playfair Display", serif;
   --font-sans: "Inter", sans-serif;
+}
 
+@layer utilities {
   .shadow-luxury {
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
   }
@@ -30,7 +32,9 @@
 }
 
 @layer base {
-  html, body {
+
+  html,
+  body {
     margin: 0;
     padding: 0;
   }
@@ -44,11 +48,16 @@
     @apply bg-bg-main text-text-primary antialiased transition-all duration-500;
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     @apply font-serif text-text-primary tracking-tight font-light;
   }
 
   p {
     @apply text-text-secondary leading-loose;
   }
-}
+}
